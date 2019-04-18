@@ -7,10 +7,9 @@ var connection = require("../database");
 var sendChildsForm = function(req,res,next){
 	var formName = req.params.formName	
 	var ChildID = req.params.childID
-	var valuesRaw = req.body.values
+	var valuesRaw = req.body
 	var valuesRefined = ''
 	valuesParsed = valuesRaw
-	valuesRefined += 'ChildID="'+ChildID+'",'
 	for(var index in valuesParsed){
 		valuesRefined += index + '="'+valuesParsed[index]+'",';
 	}
