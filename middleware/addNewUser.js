@@ -13,6 +13,10 @@ var connection = require("../database");
 	  UserID:req.body.UserID,
       email:req.body.email,
       password:md5(req.body.password),
+	  UserFirstName:req.body.userFirstName,
+	  UserLastName:req.body.userLastName,
+	  SecurityQuestion:req.body.securityQuestion,
+	  SecurityQuestionAnswer:md5(req.body.securityQuestionAnswer)
       //dob:req.body.dob,
       //latitude:req.body.latitude,
       //longitude:req.body.longitude,
@@ -56,5 +60,4 @@ var connection = require("../database");
 	}
 
    module.exports = addNewUser;
-
 
