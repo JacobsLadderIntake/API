@@ -15,6 +15,7 @@ var findUser = require('./middleware/findUser');
 var findUsersChildren = require('./middleware/findUsersChildren');
 var findAllChildren = require('./middleware/findAllChildren');
 var findChildsForm = require('./middleware/findChildsForm');
+var addNewChild = require('./middleware/addNewChild');
 var sendChildsForm = require('./middleware/sendChildsForm');
 var userSecurityQuestionCheck = require('./middleware/userSecurityQuestionCheck');
 
@@ -48,6 +49,8 @@ apiRoutes.get('/users/:id/children', findUsersChildren);
 apiRoutes.get('/children',findAllChildren);
 apiRoutes.get('/children/:childID/forms/:formName',findChildsForm);
 apiRoutes.post('/children/:childID/forms/:formName',sendChildsForm);
+apiRoutes.post('/children/',addNewChild);
+
 
 app.use('/api', apiRoutes);
 
