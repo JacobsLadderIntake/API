@@ -16,7 +16,8 @@ var connection = require("../database");
 	  UserFirstName:req.body.userFirstName,
 	  UserLastName:req.body.userLastName,
 	  SecurityQuestion:req.body.securityQuestion,
-	  SecurityQuestionAnswer:md5(req.body.securityQuestionAnswer)
+	  SecurityQuestionAnswer:md5(req.body.securityQuestionAnswer),
+	  IsAdmin:req.body.isAdmin
       //dob:req.body.dob,
       //latitude:req.body.latitude,
       //longitude:req.body.longitude,
