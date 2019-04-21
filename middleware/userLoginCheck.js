@@ -33,6 +33,7 @@ var userLoginCheck = function (req, res) {
 				var token = jwt.sign(rows, config.secret, {
 					expiresIn: '5h'
 				});
+				var isAdmin=rows[0].IsAdmin;
 				user_id= rows[0].userid;
 				var data  = {
 					user_id:rows[0].userid,
@@ -52,7 +53,8 @@ var userLoginCheck = function (req, res) {
 							"Error": false,
 							message: 'Token generated',
 							token: token,
-							currUser: user_id
+							currUser: user_id,
+							isAdmin: isAdmin
 						});
            				 } // return info including token
            				});
