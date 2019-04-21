@@ -10,7 +10,7 @@ var connection = require("../database");
     var post  = {
       //first_name:req.body.first_name,
       //last_name:req.body.last_name,
-	  UserID:req.body.UserID,
+	  UserID:req.body.userID,
       email:req.body.email,
       password:md5(req.body.password),
 	  UserFirstName:req.body.userFirstName,
