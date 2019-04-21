@@ -33,7 +33,7 @@ app.listen(port, function() {
 app.post('/signup', addNewUser);
 app.post('/userlogin', userLoginCheck);
 app.post('/userSecurityQuestion',userSecurityQuestionCheck);
-
+app.post('/children/',addNewChild);
 
 
 
@@ -49,61 +49,7 @@ apiRoutes.get('/users/:id/children', findUsersChildren);
 apiRoutes.get('/children',findAllChildren);
 apiRoutes.get('/children/:childID/forms/:formName',findChildsForm);
 apiRoutes.post('/children/:childID/forms/:formName',sendChildsForm);
-apiRoutes.post('/children/',addNewChild);
+//apiRoutes.post('/children/',addNewChild);
 
 
 app.use('/api', apiRoutes);
-
-//app.use(bodyParser());
-
-// function REST(){
-//     var self = this;
-//     self.connectMysql();
-// };
-
-// REST.prototype.connectMysql = function() {
-//     var self = this;
-//     var pool      =    mysql.createPool({
-//         connectionLimit : 100,
-//         host     : 'localhost',
-//         user     : 'root',
-//         password : '',
-//         database : 'lyive',
-//         debug    :  true
-//     });
-//     pool.getConnection(function(err,connection){
-//         if(err) {
-//           self.stop(err);
-//         } else {
-//           self.configureExpress(connection);
-//         }
-//     });
-// }
-
-//app.post('/userlogin', userLoginCheck);
-
-
-
-// REST.prototype.configureExpress = function(connection) {
-//       var self = this;
-//       app.use(bodyParser.urlencoded({ extended: true }));
-//       app.use(bodyParser.json());
-//       var router = express.Router();
-//       app.use('/api', router);
-//       router.use(verifyToken);
-//       var rest_router = new rest(router,connection,md5);
-//       self.startServer();
-// }
-
-// REST.prototype.startServer = function() {
-//       app.listen(4200,function(){
-//           console.log("All right ! I am alive at Port 4200.");
-//       });
-// }
-
-// REST.prototype.stop = function(err) {
-//     console.log("ISSUE WITH MYSQL \n" + err);
-//     process.exit(1);
-// }
-
-// new REST();
