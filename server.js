@@ -46,7 +46,7 @@ app.post('/signup', addNewUser);
 app.options('/userlogin', function (req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader('Access-Control-Allow-Methods', '*');
-  res.setHeader("Access-Control-Allow-Headers", "*");
+  res.setHeader("Access-Control-Allow-Headers": "origin", "content-type", "accept");
   res.end();
 });
 app.post('/userlogin', cors(), userLoginCheck);
