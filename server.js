@@ -45,6 +45,8 @@ app.use((req, res, next) => {
     next();
 });
 
+app.options('*', cors());
+
 app.post('/signup', addNewUser);
 app.post('/userlogin', userLoginCheck);
 app.post('/userSecurityQuestion',userSecurityQuestionCheck);
