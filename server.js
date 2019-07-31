@@ -7,12 +7,6 @@ var cors = require('cors');
 var config = require('./config');
 var config = require('./database');  
 
-/*
-var corsOptions = {
-  origin: 'https://master.d3s6zkvpjflghi.amplifyapp.com/#/',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}*/
-
 var verifyToken = require('./middleware/verifyToken');
 var addNewUser = require('./middleware/addNewUser');
 var userLoginCheck = require('./middleware/userLoginCheck');
@@ -30,19 +24,28 @@ var userSecurityQuestionCheck = require('./middleware/userSecurityQuestionCheck'
 var port = process.env.PORT || 4200;
 
 //var twilio = require('twilio');
+
+
+/*
 var app  = express();
 app.use(cors())
 app.options('*', cors())
+*/
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.listen(port, function() {
     console.log('Express server listening on port ' +port);
 });
 
-app.use(cors())
-app.options('/userlogin', cors())
 
 app.post('/signup', addNewUser);
+app.options('/userlogin', function (req, res) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader('Access-Control-Allow-Methods', '*');
+  res.setHeader("Access-Control-Allow-Headers", "*");
+  res.end();
+});
 app.post('/userlogin', cors(), userLoginCheck);
 app.post('/userSecurityQuestion',userSecurityQuestionCheck);
 app.post('/children/',addNewChild);
