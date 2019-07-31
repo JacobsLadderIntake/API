@@ -40,6 +40,11 @@ app.listen(port, function() {
 //app.use(cors())
 app.options('*', cors())
 
+if (req.method === 'OPTIONS') {
+  res.send();
+  return;
+}
+
 app.post('/signup', addNewUser);
 app.post('/userlogin', cors(), userLoginCheck);
 app.post('/userSecurityQuestion',userSecurityQuestionCheck);
