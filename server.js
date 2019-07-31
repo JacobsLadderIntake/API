@@ -38,6 +38,19 @@ app.listen(port, function() {
 
 app.use(cors())
 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    if (req.method === 'OPTIONS') {
+        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+        res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH');
+        return res.status(200).json({});
+    };
+    next();
+});
+    
+
+/*
 app.options("/*", function(req, res, next){
 	console.log("got here")
   res.header('Access-Control-Allow-Origin', '*');
@@ -45,6 +58,7 @@ app.options("/*", function(req, res, next){
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
   res.send(200);
 });
+*/
 
 app.post('/signup', addNewUser);
 app.post('/userlogin', userLoginCheck);
