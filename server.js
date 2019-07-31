@@ -3,8 +3,14 @@ var http = require('http');
 var mysql   = require("mysql");
 var bodyParser  = require("body-parser");
 var md5 = require('MD5');
+var cors = require('cors');
 var config = require('./config');
 var config = require('./database');  
+
+var corsOptions = {
+  origin: 'https://master.d3s6zkvpjflghi.amplifyapp.com/#/',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 
 var verifyToken = require('./middleware/verifyToken');
 var addNewUser = require('./middleware/addNewUser');
