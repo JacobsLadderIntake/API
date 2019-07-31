@@ -31,13 +31,15 @@ var port = process.env.PORT || 4200;
 
 //var twilio = require('twilio');
 var app  = express();
+app.use(cors())
+app.options('*', cors())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.listen(port, function() {
     console.log('Express server listening on port ' +port);
 });
 
-//app.use(cors())
+app.use(cors())
 app.options('*', cors())
 
 if (req.method === 'OPTIONS') {
