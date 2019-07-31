@@ -1,9 +1,9 @@
+var cors = require('cors'); app.use(cors());
 var express = require("express");
 var http = require('http');
 var mysql   = require("mysql");
 var bodyParser  = require("body-parser");
 var md5 = require('MD5');
-var cors = require('cors');
 var config = require('./config');
 var config = require('./database');  
 
