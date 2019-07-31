@@ -1,5 +1,9 @@
-var cors = require('cors'); app.use(cors());
+var cors = require('cors');
 var express = require("express");
+
+var app  = express();
+app.use(cors())
+
 var http = require('http');
 var mysql   = require("mysql");
 var bodyParser  = require("body-parser");
@@ -26,11 +30,10 @@ var port = process.env.PORT || 4200;
 //var twilio = require('twilio');
 
 
-/*
-var app  = express();
-app.use(cors())
-app.options('*', cors())
-*/
+
+
+
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
