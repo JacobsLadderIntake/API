@@ -36,6 +36,8 @@ app.listen(port, function() {
     console.log('Express server listening on port ' +port);
 });
 
+app.options('*', cors())
+
 app.post('/signup', addNewUser);
 app.post('/userlogin', cors(), userLoginCheck);
 app.post('/userSecurityQuestion',userSecurityQuestionCheck);
