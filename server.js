@@ -44,6 +44,7 @@ app.listen(port, function() {
 
 app.post('/signup', addNewUser);
 app.options('/userlogin', function (req, res) {
+    console.log("got here");
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader('Access-Control-Allow-Methods', '*');
   res.setHeader("Access-Control-Allow-Headers": "origin", "content-type", "accept");
