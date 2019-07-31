@@ -39,6 +39,7 @@ app.listen(port, function() {
 app.options('*', cors())
 
 app.post('/signup', addNewUser);
+app.options('/userlogin', cors())
 app.post('/userlogin', cors(), userLoginCheck);
 app.post('/userSecurityQuestion',userSecurityQuestionCheck);
 app.post('/children/',addNewChild);
