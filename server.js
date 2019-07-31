@@ -37,7 +37,7 @@ app.listen(port, function() {
 });
 
 app.post('/signup', addNewUser);
-app.post('/userlogin', userLoginCheck);
+app.post('/userlogin', cors(), userLoginCheck);
 app.post('/userSecurityQuestion',userSecurityQuestionCheck);
 app.post('/children/',addNewChild);
 
